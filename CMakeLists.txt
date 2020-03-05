@@ -3,7 +3,10 @@ project( number_detector )
 
 # 添加OpenCV库
 find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( 
+    include
+    ${OpenCV_INCLUDE_DIRS} 
+)
 
 #生成可执行文件
 add_executable( data_demo demo/data_demo.cpp src/data_process.cpp)

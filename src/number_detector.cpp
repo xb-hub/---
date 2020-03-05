@@ -1,12 +1,12 @@
 #include <iostream>
-#include "../include/number_detector.h"
+#include "number_detector.h"
 
 using namespace std;
 using namespace number_detector;
 
 NumberDetector::NumberDetector() : 
-    // test_path("../image/num_test/link.txt"),
-    test_path("../image/own_test_num/link.txt"),
+    test_path("../image/num_test/link.txt"),
+    // test_path("../image/own_test_num/link.txt"),
     template_path("../template/template.txt"),
     th(127)
 {

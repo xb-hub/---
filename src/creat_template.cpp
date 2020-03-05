@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
-#include "../include/creat_template.h"
+#include "creat_template.h"
 
 using namespace std;
 using namespace creat_template;
 
 CreatTemplate::CreatTemplate() :
-    // train_path("../image/num_train/link.txt"),
-    train_path("../image/own_train_num/link.txt"),
+    train_path("../image/num_train/link.txt"),
+    // train_path("../image/own_train_num/link.txt"),
     template_path("../template/template.txt"),
     th(127)
 {

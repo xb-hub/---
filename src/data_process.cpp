@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "../include/data_process.h"
+#include "data_process.h"
 
 using namespace std;
 using namespace data_process;
