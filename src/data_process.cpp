@@ -26,7 +26,7 @@ void DataProcess::process(Mat image)
     resize(image, image, Size(640, 480));
     Mat cut_image, tmp = ~image.clone();
     // 二值化
-    threshold(image, image, 127, 255, CV_THRESH_BINARY_INV);
+    threshold(image, image, 110, 255, CV_THRESH_BINARY_INV);
 
     // 闭操作
     dilate(image, image, Mat());

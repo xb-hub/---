@@ -20,7 +20,7 @@ NumberDetector::~NumberDetector()
 
 void NumberDetector::detector()
 {
-    vector<int> ans[10];
+    vector<double> current(10, 0), count_(10, 0);
     fstream test_file(test_path);
     string test_link, template_link, file_path;
     int test_label, template_label, value, count = 0;
@@ -70,19 +70,30 @@ void NumberDetector::detector()
                     dist++;
                 }
             }
-            ans[template_label].push_back(dist);
             if(dist < max_dist)
             {
                 ans_label = template_label;
                 max_dist = dist;
             }
         }
-        if(ans_label == test_label)  current_count++;
+        if(ans_label == test_label)
+        {
+            current[ans_label]++;
+            current_count++;
+        }
+        count_[ans_label]++;
         total++;
         cout << "识别结果：" << ans_label << "  " << "测试标签：" << test_label << endl;
     }
     cout << "------------------------------------------------" << endl;
     cout << "测试样本总数：" << total << endl;
     cout << "识别正确个数：" << current_count << endl;
-    cout << "正确率：" << current_count / total * 100 << "%  错误率：" << (total - current_count) / total * 100 << "%" << endl;
+    cout << "每个数字识别率：" << endl;
+    for(int i = 0; i < 10; i++)
+    {
+        double tmp = current[i] / count_[i];
+        cout << i << "  正确率：" << tmp * 100 << "%   错误率：" << (1 - tmp) * 100 << "%" << endl;
+    }
+    cout << "------------------------------------------------" << endl;
+    cout << "总正确率：" << current_count / total * 100 << "%  总错误率：" << (total - current_count) / total * 100 << "%" << endl;
 }
