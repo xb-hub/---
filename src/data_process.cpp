@@ -9,7 +9,7 @@ DataProcess::DataProcess():
         min_height(20),
         min_width(10),
         size_(28),
-        th(110)
+        th(105)
 {
 
 }

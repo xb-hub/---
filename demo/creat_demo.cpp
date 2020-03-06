@@ -5,6 +5,8 @@ using namespace creat_template;
 
 int main()
 {
-    CreatTemplate* creat_template = new CreatTemplate();
+    Kind kind = MNIST;
+    // Kind kind = OWN;
+    CreatTemplate* creat_template = new CreatTemplate(kind);
     creat_template->create();
 }

@@ -4,13 +4,18 @@
 using namespace std;
 using namespace number_detector;
 
-NumberDetector::NumberDetector() : 
-    // test_path("../image/num_test/link.txt"),
-    test_path("../image/own_test_num/link.txt"),
+NumberDetector::NumberDetector(Kind kind) : 
     template_path("../template/template.txt"),
     th(127)
 {
-
+    if(kind == MNIST)
+    {
+        test_path = "../image/num_test/link.txt";
+    }
+    else if(kind == OWN)
+    {
+        test_path = "../image/own_test_num/link.txt";
+    }
 }
 
 NumberDetector::~NumberDetector()

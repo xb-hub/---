@@ -5,6 +5,11 @@ using namespace cv;
 
 namespace creat_template
 {
+enum Kind
+{
+    OWN = 0,
+    MNIST = 1
+};
 class CreatTemplate
 {
 private:
@@ -12,7 +17,7 @@ private:
     string template_path;       // 模板文件路径
     int th;
 public:
-    CreatTemplate(/* args */);
+    CreatTemplate(Kind kind);
     ~CreatTemplate();
 
     void create();

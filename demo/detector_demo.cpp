@@ -5,6 +5,8 @@ using namespace number_detector;
 
 int main()
 {
-    NumberDetector* number_detector = new NumberDetector();
+    Kind kind = MNIST;
+    // Kind kind = OWN;
+    NumberDetector* number_detector = new NumberDetector(kind);
     number_detector->detector();
 }

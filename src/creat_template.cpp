@@ -5,13 +5,18 @@
 using namespace std;
 using namespace creat_template;
 
-CreatTemplate::CreatTemplate() :
-    // train_path("../image/num_train/link.txt"),
-    train_path("../image/own_train_num/link.txt"),
+CreatTemplate::CreatTemplate(Kind kind) :
     template_path("../template/template.txt"),
     th(127)
 {
-
+    if(kind == MNIST)
+    {
+        train_path = "../image/num_train/link.txt";
+    }
+    else if(kind == OWN)
+    {
+        train_path = "../image/own_train_num/link.txt";
+    }
 }
 
 CreatTemplate::~CreatTemplate()

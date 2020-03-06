@@ -5,6 +5,12 @@ using namespace cv;
 
 namespace number_detector
 {
+
+enum Kind
+{
+    OWN = 0,
+    MNIST = 1
+};
 class NumberDetector
 {
 private:
@@ -13,7 +19,7 @@ private:
     int ans_label;            // 识别结果
     int th;
 public:
-    NumberDetector(/* args */);
+    NumberDetector(Kind kind);
     ~NumberDetector();
 
     void detector();
