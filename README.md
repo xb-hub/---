@@ -80,7 +80,11 @@
 
 ### 使用自己的数据集
 ```
-1.进入build执行data_process，分割图片生成训练集和测试集，往后步骤同minst数据集步骤
+1.进入build执行data_process，分割图片生成训练集和测试集，执行脚本生成link.txt,往后步骤同minst数据集步骤
 -  cd build
 -  ./data_process
+- cd image/own_test_num
+- bash ./creat_link.sh
+- cd ../own_train_num
+- bash ./creat_link.sh
 ```

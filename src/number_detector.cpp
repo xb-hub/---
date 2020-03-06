@@ -5,8 +5,8 @@ using namespace std;
 using namespace number_detector;
 
 NumberDetector::NumberDetector() : 
-    test_path("../image/num_test/link.txt"),
-    // test_path("../image/own_test_num/link.txt"),
+    // test_path("../image/num_test/link.txt"),
+    test_path("../image/own_test_num/link.txt"),
     template_path("../template/template.txt"),
     th(127)
 {
@@ -81,7 +81,7 @@ void NumberDetector::detector()
             current[ans_label]++;
             current_count++;
         }
-        count_[ans_label]++;
+        count_[test_label]++;
         total++;
         cout << "识别结果：" << ans_label << "  " << "测试标签：" << test_label << endl;
     }

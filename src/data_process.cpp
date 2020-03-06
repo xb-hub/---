@@ -7,7 +7,9 @@ using namespace data_process;
 
 DataProcess::DataProcess():
         min_height(20),
-        min_width(10)
+        min_width(10),
+        size_(28),
+        th(110)
 {
 
 }
@@ -21,11 +23,8 @@ void DataProcess::process(Mat image)
 {
     realpath("../image/own_train_num", train_path);
     realpath("../image/own_test_num", test_path);
-    // realpath("../image/num_train", train_path);
-    // realpath("../image/num_test", test_path);
-    resize(image, image, Size(640, 480));
     Mat cut_image, tmp = ~image.clone();
-    // 二值化
+    // 反转二值化
     threshold(image, image, 110, 255, CV_THRESH_BINARY_INV);
 
     // 闭操作
@@ -38,15 +37,16 @@ void DataProcess::process(Mat image)
     for(int i = 0; i < contours.size(); i++)
     {
         Rect rect = boundingRect(contours[i]);
-        rect.x -= 5;    rect.y -= 4;
-        rect.width += 10;   rect.height += 8;
+        // 处理最小矩形轮廓,防止图像转成28*28时变形
+        rect.x -= 4;    rect.y -= 4;
+        rect.width += 8;   rect.height += 8;
         if(rect.width < min_width || rect.height < min_height)
         {
             continue;
         }
         char filename[1000];
         cut_image = tmp(rect);
-        resize(cut_image, cut_image, Size(28, 28));
+        resize(cut_image, cut_image, Size(size_, size_));
         if(no % 16 != 15)
         {
             sprintf(filename, "%s/%d/%d_%d.jpg", train_path, 9 - no / 16, 9 - no / 16, no % 16);
@@ -59,6 +59,6 @@ void DataProcess::process(Mat image)
         rectangle(image, rect, Scalar(255, 255, 255), 1);
         no++;
     }
-    imshow("image", image);
-    cvWaitKey(0);
+    // imshow("image", image);
+    // cvWaitKey(0);
 }
