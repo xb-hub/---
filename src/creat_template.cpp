@@ -53,10 +53,8 @@ void CreatTemplate::create()
         {
             for(int j = 0; j < number.cols; j++)
             {
-                // cout << (int)number.at<uchar>(i,j) << " ";
                 template_ += (int)number.at<uchar>(i,j) >= th ? "0" : "1";
             }
-            // cout << endl;
         }
         os << label << template_ << endl;
     }

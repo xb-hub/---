@@ -25,7 +25,7 @@ void DataProcess::process(Mat image)
     realpath("../image/own_test_num", test_path);
     Mat cut_image, tmp = ~image.clone();
     // 反转二值化
-    threshold(image, image, 110, 255, CV_THRESH_BINARY_INV);
+    threshold(image, image, th, 255, CV_THRESH_BINARY_INV);
 
     // 闭操作
     dilate(image, image, Mat());
