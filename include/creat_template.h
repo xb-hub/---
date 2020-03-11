@@ -1,3 +1,5 @@
+#ifndef _CreatTemplate_H_
+#define _CreatTemplate_H_
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -24,3 +26,4 @@ public:
 };
     
 } // namespace number_detector
+#endif

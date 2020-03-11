@@ -1,3 +1,5 @@
+#ifndef _DataProcess_H_
+#define _DataProcess_H_
 #include <opencv2/opencv.hpp>
 using namespace cv;
 
@@ -18,3 +20,4 @@ public:
     void process(Mat image);
 };
 }
+#endif

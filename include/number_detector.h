@@ -1,3 +1,5 @@
+#ifndef _NumberDetector_H_
+#define _NumberDetector_H_
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -26,3 +28,4 @@ public:
 };
     
 } // namespace number_detector
+#endif
